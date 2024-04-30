@@ -209,7 +209,7 @@ app.get(
       res.render("explorebooks/notfound.ejs");
     } else {
       // Render the books
-      res.render("explorebooks/allbooks.ejs", { allBooks });
+      res.render("explorebooks/allBooks.ejs", { allBooks });
     }
   })
 );
