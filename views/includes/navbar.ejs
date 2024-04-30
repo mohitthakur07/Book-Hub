@@ -1,0 +1,110 @@
+<style>
+  nav {
+    box-shadow: 2px 4px 8px black;
+    margin: 0.5rem;
+    border-radius: 10px;
+    padding: 13px !important;
+  }
+
+  .fa-book {
+    color: #fa8b2d;
+  }
+
+  @media only screen and (min-width: 1217px) {
+    nav {
+      border-radius: 0.8rem;
+      margin: 2rem 6rem;
+    }
+
+    .collapse {
+      margin-left: 19rem;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+
+  .nav-link {
+    font-family: "Bitter", serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-style: normal;
+    color: #333;
+    margin-left: 0.2rem;
+    border-radius: 16px;
+    transition: background-color 0.4s ease, color 0.5s ease;
+  }
+
+  .nav-link:hover {
+    color: #fff;
+    background-color: #fa8b2d;
+    border-radius: 16px;
+  }
+
+  .nav-link:active {
+    color: #fff;
+    background-color: #f87537;
+    border-radius: 20px;
+  }
+
+  .navbar-section {
+    flex-grow: 1;
+    text-align: center;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-section">
+      <a class="navbar-brand" href="/"
+        ><i class="fa-solid fa-book"></i>book hub</a
+      >
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-section">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item findbooks">
+            <a class="nav-link" href="/explorebooks">Explore books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/addbooks/new">Add your book</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-section">
+        <!-- Empty section for center alignment -->
+      </div>
+      <div class="navbar-section">
+        <ul class="navbar-nav">
+          <% if(!curntUser) {%>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Log in <i class="fa-regular fa-user"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Sign up <i class="fa-regular fa-user"></i></a>
+          </li>
+          <% } %> <% if (curntUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

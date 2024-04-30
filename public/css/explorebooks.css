@@ -1,0 +1,59 @@
+*{
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media only screen and (max-width: 700px) {
+   .srh{
+    margin-top: 5rem !important;
+   } 
+}
+
+@media only screen and (min-width: 700px) {
+    .srh{
+    margin-top: 9rem !important;
+}
+}
+
+.srh{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+
+
+.allBooks{
+    margin-top: 1rem !important;
+    justify-content: space-evenly;
+}
+
+.singlebook{
+    width: 20rem !important;
+    border: none !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.536); 
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+.books-card{
+    border: none !important;
+}
+
+.allBooks a{
+    text-decoration: none;
+}
+
+.books-card{
+    margin-top: 1rem;
+}
+
+.card-text b span{
+    color: red;
+}
+
+.card-text b span:hover{
+    text-decoration: underline;
+}
+

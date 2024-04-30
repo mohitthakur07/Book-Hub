@@ -1,0 +1,61 @@
+<% layout('/layouts/boilerplate') -%>
+
+<style>
+    .btns{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .books-card{
+        margin-top: 9rem !important;
+    }
+
+    @media only screen and (max-width: 780px) {
+  .books-card {
+    width: 20rem !important;
+  }
+}
+</style>
+<!-- <h2>show book</h2> -->
+
+
+
+<div class="card col-6 offset-2 books-card" style="width: 30rem">
+    <img
+      src="<%= books.image.url %>"
+      class="card-img-top book-img show-img"
+      alt="book image"
+    />
+    <div class="card-body">
+      <!-- <p class="card-text">
+        <i>owner: this is for owner</i>
+      </p> -->
+      <h4 class="card-text"><b> <%= books.title %> </b></h4>
+      <p class="card-text"><%= books.description %></p>
+      <p class="card-text">Author's name: <%= books.author %></p>
+      <p class="card-text">Price: 
+        &#8377;<%= books.price.toLocaleString("en-IN") %>
+      </p>
+      <p class="card-text">Location: <%= books.location %></p>
+      <p class="card-text">Owner's name: <b><%= books.owner.username %></b></p>
+      <p class="card-text">Owner's contact number: <b><%= books.contact %></b></p>
+    </div>
+  </div>
+  <br />
+  
+  <% if(curntUser && curntUser._id.equals(books.owner._id)) { %>
+  <div class="btns mb-5">
+    <a href="/explorebooks/<%= books._id %>/edit" class="btn btn-success col1 offset-2"
+      >Edit
+    </a>
+    <form
+      method="post"
+      action="/explorebooks/<%= books._id %>?_method=delete"
+      novalidate
+      class="needs-validation"
+    >
+      <button class="btn delete-btn btn-danger offset-2">delete</button>
+    </form>
+  </div>
+  <% } %>
+ 
