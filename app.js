@@ -1,5 +1,5 @@
-if(process.env.NODE_ENV != "production" ){
-  require('dotenv').config();
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
 }
 
 const express = require("express");
@@ -19,10 +19,10 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const { isLoggedIn } = require("./middleware.js");
 const { saveRedirectUrl } = require("./middleware.js");
-const multer  = require('multer');
-const{storage} = require("./cloudconfig.js");
-const upload = multer({storage });
-const MongoStore = require('connect-mongo');
+const multer = require("multer");
+const { storage } = require("./cloudconfig.js");
+const upload = multer({ storage });
+const MongoStore = require("connect-mongo");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -37,23 +37,21 @@ main()
   .then(() => console.log("db connect "))
   .catch((err) => console.log(err));
 
-  async function main() {
-    await mongoose.connect(dbUrl);
-  }
+async function main() {
+  await mongoose.connect(dbUrl);
+}
 
-
-const store =  MongoStore.create({
+const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
     secret: process.env.SECRET,
   },
-  touchAfter: 24* 3600,
+  touchAfter: 24 * 3600,
 });
 
-store.on("error", ()=>{
+store.on("error", () => {
   console.log("error in mongo session store", err);
 });
-
 
 const sessionOptions = {
   store,
@@ -66,7 +64,6 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -166,13 +163,13 @@ app.post(
   "/addbooks",
   isLoggedIn, // Add isLoggedIn middleware to ensure user is authenticated
   // validateBook,
-  upload.single('books[image]'),
+  upload.single("books[image]"),
   async (req, res, next) => {
     try {
       if (!req.user) {
         throw new expressError(401, "User not authenticated");
       }
-      
+
       let url = req.file.path;
       let filename = req.file.filename;
       let newBooks = new Book(req.body.books);
@@ -188,7 +185,6 @@ app.post(
   }
 );
 
-
 // book listing route
 app.get(
   "/explorebooks",
@@ -199,9 +195,7 @@ app.get(
     }
 
     const allBooks = await Book.find({
-      $or: [
-        { title: { $regex: ".*" + search + ".*",$options: "i" } }
-      ]
+      $or: [{ title: { $regex: ".*" + search + ".*", $options: "i" } }],
     });
 
     if (search !== "" && allBooks.length === 0) {
@@ -238,7 +232,7 @@ app.get(
 // update book route
 app.put(
   "/explorebooks/:id",
-  upload.single('books[image]'),
+  upload.single("books[image]"),
   validateBook,
   wrapAsync(async (req, res) => {
     const { id } = req.params;
