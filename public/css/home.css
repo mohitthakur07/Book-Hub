@@ -21,7 +21,7 @@
   .title {
     color: white;
     position: absolute;
-    top: 26rem;
+    top: 20rem;
     left: 40%;
     text-align: center;
   }
@@ -52,9 +52,9 @@
   .title {
     color: black;
     position: absolute;
-    top: 10rem;
+    top: 6rem;
     text-align: center;
-    left: 20%;
+    left: 10%;
   }
   .cards {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -174,3 +174,6 @@
 .privacy span {
   color: red;
 }
+
+
+
