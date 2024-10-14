@@ -3,6 +3,7 @@
     background-color: #333;
     color: #fff;
     padding: 20px 0;
+    position: relative;
   }
 
   .footer-container {
@@ -11,12 +12,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+    padding: 0 20px;
+    /* Add horizontal padding */
+  }
+
+  .footer-links {
+    margin: 10px;
   }
 
   .footer-links ul {
     list-style: none;
     padding: 0;
-    margin: 10px;
+    margin: 0;
   }
 
   .footer-links ul li {
@@ -26,8 +35,9 @@
 
   .footer-links ul li:hover {
     text-decoration: underline;
+    color: #00aaff;
+    /* Change color on hover */
   }
-
 
   .footer-links ul li:last-child {
     margin-right: 0;
@@ -36,19 +46,36 @@
   .footer-links ul li a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s;
+    /* Smooth color transition */
+  }
+
+  .footer-info {
+    text-align: right;
+    /* Align info to the right */
   }
 
   .footer-info p {
-    margin: 0;
+    margin: 5px 0;
+    /* Adjust margin */
   }
 
   .f-info-socials a {
     text-decoration: none;
+    margin-left: 10px;
+    /* Space between social icons */
   }
 
   .fa-square-facebook {
     color: rgb(23, 159, 244);
     font-size: 30px;
+    transition: transform 0.3s;
+    /* Animation effect */
+  }
+
+  .fa-square-facebook:hover {
+    transform: scale(1.1);
+    /* Scale effect on hover */
   }
 
   .fa-square-instagram {
@@ -63,6 +90,30 @@
     -webkit-text-fill-color: transparent;
     font-size: 30px;
     padding-left: 5px;
+    transition: transform 0.3s;
+    /* Animation effect */
+  }
+
+  .fa-square-instagram:hover {
+    transform: scale(1.1);
+    /* Scale effect on hover */
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      /* Stack items vertically */
+      align-items: flex-start;
+      /* Align to the start */
+    }
+
+    .footer-info {
+      text-align: left;
+      /* Align text to the left on smaller screens */
+      margin-top: 10px;
+      /* Space between sections */
+    }
   }
 </style>
 
@@ -80,16 +131,18 @@
     <div class="footer-info">
       <div class="f-info">
         <div class="f-info-socials">
-          <a href="https://www.facebook.com/mohit.kumarthakur.3958?mibextid=ZbWKwL "><i
-              class="fa-brands fa-square-facebook"></i> </a><a href="https://www.instagram.com/mohit._.thakur._.07/"><i
-              class="fa-brands fa-square-instagram"></i>
+          <a href="https://www.facebook.com/mohit.kumarthakur.3958?mibextid=ZbWKwL">
+            <i class="fa-brands fa-square-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/mohit._.thakur._.07/">
+            <i class="fa-brands fa-square-instagram"></i>
           </a>
         </div>
-        <div class="f-info-brand">&copy; Book Hub V2.0.0</div>
+        <div class="f-info-brand">&copy; Book Hub V2.0.1</div>
       </div>
       <p>Contact: mohitkumart19@gmail.com</p>
       <p>Phone: 88945 82454</p>
-      <P><i>made with love &hearts;</i></P>
+      <p><i>made with love &hearts;</i></p>
     </div>
   </div>
 </footer>

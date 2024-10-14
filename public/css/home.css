@@ -106,7 +106,7 @@ marquee{
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
-  margin-top: 2rem;
+  /* margin-top: 2rem;  */
 }
 
 .card-container h3{

@@ -1,59 +1,75 @@
-*{
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-@media only screen and (max-width: 700px) {
-   .srh{
-    margin-top: 5rem !important;
-   } 
-}
-
-@media only screen and (min-width: 700px) {
-    .srh{
-    margin-top: 9rem !important;
-}
-}
-
-.srh{
+* {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Mobile screen adjustments */
+  @media only screen and (max-width: 700px) {
+    .srh {
+      margin-top: 5rem !important;
+    }
+  
+    .allBooks {
+      display: flex !important;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Evenly space the books */
+    }
+  
+    .singlebook {
+      width: 48% !important; /* Make each book take 48% of the width, fitting 2 in a row */
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Larger screen adjustments */
+  @media only screen and (min-width: 700px) {
+    .srh {
+      margin-top: 9rem !important;
+    }
+  
+    .singlebook {
+      width: 15rem !important;
+    }
+  }
+  
+  .srh {
     display: flex !important;
     justify-content: center !important;
-}
-
-
-
-.allBooks{
+  }
+  
+  .allBooks {
     margin-top: 1rem !important;
-    justify-content: space-evenly;
-}
-
-.singlebook{
-    width: 20rem !important;
+    justify-content: space-around;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .singlebook {
     border: none !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.536); 
-    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.536);
+    /* border-radius: 1rem; */
     margin: 2rem 0;
-}
-
-.books-card{
+  }
+  
+  .books-card {
     border: none !important;
-}
-
-.allBooks a{
+  }
+  
+  .allBooks a {
     text-decoration: none;
-}
-
-.books-card{
+  }
+  
+  .books-card {
     margin-top: 1rem;
-}
-
-.card-text b span{
+  }
+  
+  .card-text b span {
     color: red;
-}
-
-.card-text b span:hover{
+  }
+  
+  .card-text b span:hover {
     text-decoration: underline;
-}
-
+  }
+  

@@ -23,6 +23,7 @@ const multer = require("multer");
 const { storage } = require("./cloudconfig.js");
 const upload = multer({ storage });
 const MongoStore = require("connect-mongo");
+const user = require("./models/user.js");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -205,6 +206,22 @@ app.get(
       // Render the books
       res.render("explorebooks/allBooks.ejs", { allBooks });
     }
+  })
+);
+
+// profile book show
+app.get(
+  "/yourbooks",
+  isLoggedIn,
+  wrapAsync(async (req, res) => {
+    // res.send("your book page");
+    // res.render("explorebooks/yourBooks.ejs");
+    const userId = req.user._id;
+    console.log(userId);
+    const yourBooks = await Book.find({ owner: userId });
+    // const books = await User.findById(userId).populate("owner");
+    // console.log(books.owner);
+    res.render("explorebooks/yourBooks.ejs", { yourBooks });
   })
 );
 

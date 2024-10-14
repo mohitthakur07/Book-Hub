@@ -57,19 +57,10 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="container-fluid">
     <div class="navbar-section">
-      <a class="navbar-brand" href="/"
-        ><i class="fa-solid fa-book"></i>book hub</a
-      >
+      <a class="navbar-brand" href="/"><i class="fa-solid fa-book"></i>book hub</a>
     </div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -92,17 +83,21 @@
       <div class="navbar-section">
         <ul class="navbar-nav">
           <% if(!curntUser) {%>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Log in <i class="fa-regular fa-user"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">Sign up <i class="fa-regular fa-user"></i></a>
-          </li>
-          <% } %> <% if (curntUser) { %>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
-          </li>
-          <% } %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Log in <i class="fa-regular fa-user"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign up <i class="fa-regular fa-user"></i></a>
+            </li>
+            <% } %>
+              <% if (curntUser) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/yourbooks">your profile<i class="fa-solid fa-user"></i></a>
+                </li>
+                <% } %>
         </ul>
       </div>
     </div>

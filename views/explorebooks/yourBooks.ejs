@@ -1,0 +1,128 @@
+<%- layout('layouts/boilerplate') -%>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile {
+            margin-top: 10rem;
+            text-align: center;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 1rem;
+            font-size: 1.75rem;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            /* Space between buttons */
+        }
+
+        .books-link {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .books-link:hover {
+            background-color: #218838;
+        }
+
+        /* Add a responsive style */
+        @media (max-width: 768px) {
+            .profile {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            .books-link {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+    <div class="profile">
+        <h1>Your Profile</h1>
+
+        <h2>Your Added Books</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% yourBooks.forEach(book=> { %>
+                    <tr>
+                        <td>
+                            <%= book.title %>
+                        </td>
+                        <td>
+                            <%= book.author %>
+                        </td>
+                        <td>
+                            <div class="btns mb-5">
+                                <a href="/explorebooks/<%= book._id %>" class="books-link">Click here to edit and delete
+                                    your book</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>

@@ -1,30 +1,28 @@
 <% layout('/layouts/boilerplate') -%>
-<div class="srh navbar">
-  <form class="d-flex srh-form"  role="search">
-    <input class="form-control me-2" type="search" name="search" placeholder="Search book name" aria-label="Search">
-    <button class="btn btn-success"  type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-  </form>
-</div>
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mb-3  allBooks">
-  <% for(let books of allBooks){ %>
-    <div class="singlebook">
-  <a href="/explorebooks/<%= books._id %>" class="books-link">
-    <div class="card cols books-card">
-      <img
-        src="<%= books.image.url %>"
-        class="card-img-top"
-        alt="books_image"
-      />
-      <!-- <div class="card-img-overlay"></div> -->
-      <div class="card-body">
-        <p class="card-text ">
-          <b>Title: <span> <%= books.title %> </span></b> <br />
-          price: &#8377;<%= books.price.toLocaleString("en-IN") %>
-          <!-- <i class="tax-info"> &nbsp; &nbsp; +18% GST</i> -->
-        </p>
+  <div class="srh navbar">
+    <form class="d-flex srh-form" role="search">
+      <input class="form-control me-2" type="search" name="search" placeholder="Search book name" aria-label="Search">
+      <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mb-3  allBooks">
+    <% for(let books of allBooks){ %>
+      <div class="singlebook">
+        <a href="/explorebooks/<%= books._id %>" class="books-link">
+          <div class="card cols books-card">
+            <img src="<%= books.image.url %>" class="card-img-top" alt="books_image" />
+            <!-- <div class="card-img-overlay"></div> -->
+            <div class="card-body">
+              <p class="card-text ">
+                <b>Title: <span>
+                    <%= books.title %>
+                  </span></b> <br />
+                price: &#8377;<%= books.price.toLocaleString("en-IN") %>
+                  <!-- <i class="tax-info"> &nbsp; &nbsp; +18% GST</i> -->
+              </p>
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
-  </a>
-</div>
-  <% } %>
-</div>
+      <% } %>
+  </div>
