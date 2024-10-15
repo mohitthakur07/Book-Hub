@@ -6,7 +6,7 @@
         }
 
         .profile {
-            margin-top: 10rem;
+            margin-top: 5rem;
             text-align: center;
             background-color: #fff;
             padding: 2rem;
@@ -67,8 +67,20 @@
             transition: background-color 0.3s;
         }
 
+
+
         .books-link:hover {
             background-color: #218838;
+        }
+
+        tbody td img {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .myBooks {
+                width: 20%;
+            }
         }
 
         /* Add a responsive style */
@@ -96,29 +108,33 @@
     </style>
     <div class="profile">
         <h1>Your Profile</h1>
-
+        <hr>
         <h2>Your Added Books</h2>
         <table>
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Title</th>
-                    <th>Author</th>
-                    <th>Actions</th>
+                    <!-- <th>Author</th> -->
+                    <th>More details</th>
                 </tr>
             </thead>
             <tbody>
                 <% yourBooks.forEach(book=> { %>
                     <tr>
                         <td>
+                            <img src="<%= book.image.url %>" class="myBooks" alt="book image" />
+                        </td>
+                        <td>
                             <%= book.title %>
                         </td>
-                        <td>
+                        <!-- <td>
                             <%= book.author %>
-                        </td>
+                        </td> -->
                         <td>
-                            <div class="btns mb-5">
-                                <a href="/explorebooks/<%= book._id %>" class="books-link">Click here to edit and delete
-                                    your book</a>
+                            <div class="btns ">
+                                <a href="/explorebooks/<%= book._id %>" class="books-link">Click&nbsp;here..
+                                </a>
                             </div>
                         </td>
                     </tr>

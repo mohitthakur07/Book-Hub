@@ -260,7 +260,7 @@ app.put(
       updatedBook.image = { url, filename };
       await updatedBook.save();
     }
-    req.flash("success", "you edit your book");
+    req.flash("success", "new changes done!");
     res.redirect(`/explorebooks/${id}`);
   })
 );
@@ -270,7 +270,7 @@ app.delete("/explorebooks/:id", isLoggedIn, async (req, res) => {
   let { id } = req.params;
   let deletedBook = await Book.findByIdAndDelete(id);
   console.log(deletedBook);
-  req.flash("error", "you deleted your book listing");
+  req.flash("error", "you deleted your book");
   res.redirect("/explorebooks");
 });
 

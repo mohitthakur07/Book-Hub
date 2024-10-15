@@ -1,170 +1,130 @@
 <% layout('layouts/boilerplate') -%>
 
-<style>
-  body {
-    background-color: #e6e6fa;
-  }
+  <style>
+    body {
+      background-color: #e6e6fa;
+    }
 
-  .form-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 9rem 0 3rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 6rem 0 3rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-  .edit-form {
-    color: #000;
-  }
+    .form-container h3 {
+      background-color: #FA8B2D;
+      padding: 5px;
+      border-radius: 10px;
+      color: #fff;
+      text-align: center;
+    }
 
-  .form-control {
-    background-color: #fff;
-    border: none;
-    border-bottom: 2px solid #000;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0.5rem 1rem;
-    transition: border-color 0.3s ease;
-  }
+    .edit-form {
+      color: #000;
+    }
 
-  .form-control:focus {
-    border-color: #000;
-    box-shadow: none;
-    background-color: transparent;
-  }
+    .form-control {
+      background-color: #fff;
+      border: none;
+      border-bottom: 2px solid #000;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0.5rem 1rem;
+      transition: border-color 0.3s ease;
+    }
 
-  .form-control::placeholder {
-    color: #000;
-  }
+    .form-control:focus {
+      border-color: #000;
+      box-shadow: none;
+      background-color: transparent;
+    }
 
-  .invalid-feedback {
-    color: #dc3545;
-  }
+    .form-control::placeholder {
+      color: #000;
+    }
 
-  .btn-success {
-    background-color: #28a745;
-    border: none;
-    border-radius: 0.25rem;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    .invalid-feedback {
+      color: #dc3545;
+    }
 
-  .btn-success:hover {
-    background-color: #218838;
-  }
-</style>
+    .btn-success {
+      background-color: #28a745;
+      border: none;
+      border-radius: 0.25rem;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="form-container edit-form">
-        <form
-          method="post"
-          action="/explorebooks/<%= books._id %>?_method=put"
-          class="edit-form needs-validation"
-          novalidate
-          enctype="multipart/form-data";
-        >
-          <div class="col-8 offset-2">
-            <div class="mb-3">
-              <label for="title" class="form-label">Title</label>
-              <input
-                type="text"
-                name="books[title]"
-                class="form-control"
-                id="title"
-                placeholder="Enter the title"
-                value="<%= books.title %>"
-                required
-              />
-              <div class="invalid-feedback">Please choose a title</div>
-            </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <textarea
-                name="books[description]"
-                class="form-control"
-                id="description"
-                cols="30"
-                rows="5"
-                placeholder="Enter the description for your book"
-                required
-              >
-<%= books.description %></textarea
-              >
-              <div class="invalid-feedback">Please enter a description</div>
-            </div>
-            <div class="row">
-              <div class="mb-3 col-md-4">
-                <label for="author" class="form-label">Author</label>
-                <input
-                  type="text"
-                  name="books[author]"
-                  value="<%= books.author %>"
-                  class="form-control"
-                  id="author"
-                  required
-                />
-                <div class="invalid-feedback">Please enter author's name</div>
+    .btn-success:hover {
+      background-color: #218838;
+    }
+  </style>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="form-container edit-form">
+          <h3>Edit your book</h3>
+          <form method="post" action="/explorebooks/<%= books._id %>?_method=put" class="edit-form needs-validation"
+            novalidate enctype="multipart/form-data" ;>
+            <div class="">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="books[title]" class="form-control" id="title" placeholder="Enter the title"
+                  value="<%= books.title %>" required />
+                <div class="invalid-feedback">Please choose a title</div>
               </div>
-              <div class="mb-3 col-md-8">
-                <label for="price" class="form-label">Price</label>
-                <input
-                  type="number"
-                  name="books[price]"
-                  value="<%= books.price %>"
-                  class="form-control"
-                  id="price"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Please enter a price for your book
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="books[description]" class="form-control" id="description" cols="30" rows="5"
+                  placeholder="Enter the description for your book" required>
+<%= books.description %></textarea>
+                <div class="invalid-feedback">Please enter a description</div>
+              </div>
+              <div class="row">
+                <div class="mb-3 col-md-4">
+                  <label for="author" class="form-label">Author</label>
+                  <input type="text" name="books[author]" value="<%= books.author %>" class="form-control" id="author"
+                    required />
+                  <div class="invalid-feedback">Please enter author's name</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                  <label for="price" class="form-label">Price</label>
+                  <input type="number" name="books[price]" value="<%= books.price %>" class="form-control" id="price"
+                    required />
+                  <div class="invalid-feedback">
+                    Please enter a price for your book
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="mb-3">
-              <label for="image" class="form-label">Image</label>
-              <input
-                type="file"
-                name="books[image]"
-                class="form-control"
-                id="image"
-              />
-            </div>
-            <div class="row">
-              <div class="mb-3 col-md-4">
-                <label for="contact" class="form-label">Contact Number</label>
-                <input
-                  type="tel"
-                  name="books[contact]"
-                  value="<%= books.contact %>"
-                  class="form-control"
-                  id="contact"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Please enter your contact number
+              <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" name="books[image]" class="form-control" id="image" />
+              </div>
+              <div class="row">
+                <div class="mb-3 col-md-4">
+                  <label for="contact" class="form-label">Contact Number</label>
+                  <input type="tel" name="books[contact]" value="<%= books.contact %>" class="form-control" id="contact"
+                    required />
+                  <div class="invalid-feedback">
+                    Please enter your contact number
+                  </div>
+                </div>
+                <div class="mb-3 col-md-8">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" name="books[location]" value="<%= books.location %>" class="form-control"
+                    id="location" required />
+                  <div class="invalid-feedback">Please enter your location</div>
                 </div>
               </div>
-              <div class="mb-3 col-md-8">
-                <label for="location" class="form-label">Location</label>
-                <input
-                  type="text"
-                  name="books[location]"
-                  value="<%= books.location %>"
-                  class="form-control"
-                  id="location"
-                  required
-                />
-                <div class="invalid-feedback">Please enter your location</div>
-              </div>
+              <button class="btn btn-success">Submit</button>
             </div>
-            <button class="btn btn-success">Submit</button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
