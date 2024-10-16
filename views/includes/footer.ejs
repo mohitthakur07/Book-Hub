@@ -2,7 +2,7 @@
   footer {
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
+    padding: 40px 0;
     position: relative;
   }
 
@@ -11,138 +11,166 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    /* Allow items to wrap on smaller screens */
     padding: 0 20px;
-    /* Add horizontal padding */
   }
 
-  .footer-links {
+  .footer-section {
+    flex: 1 1 200px;
     margin: 10px;
   }
 
-  .footer-links ul {
+  .footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    color: #FA8B2D;
+  }
+
+  .footer-section ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .footer-links ul li {
-    display: inline-block;
-    margin-right: 20px;
+  .footer-section ul li {
+    margin-bottom: 10px;
   }
 
-  .footer-links ul li:hover {
-    text-decoration: underline;
-    color: #00aaff;
-    /* Change color on hover */
-  }
-
-  .footer-links ul li:last-child {
-    margin-right: 0;
-  }
-
-  .footer-links ul li a {
+  .footer-section ul li a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s;
-    /* Smooth color transition */
   }
 
-  .footer-info {
-    text-align: right;
-    /* Align info to the right */
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+    color: #00aaff;
   }
 
-  .footer-info p {
-    margin: 5px 0;
-    /* Adjust margin */
+  .newsletter input[type="email"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 80%;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+
+  .newsletter button {
+    background-color: #FA8B2D;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .newsletter button:hover {
+    background-color: #218838;
   }
 
   .f-info-socials a {
     text-decoration: none;
     margin-left: 10px;
-    /* Space between social icons */
   }
 
   .fa-square-facebook {
     color: rgb(23, 159, 244);
     font-size: 30px;
     transition: transform 0.3s;
-    /* Animation effect */
   }
 
   .fa-square-facebook:hover {
     transform: scale(1.1);
-    /* Scale effect on hover */
   }
 
   .fa-square-instagram {
-    background: radial-gradient(circle at 30% 107%,
-        #fdf497 0%,
-        #fdf497 5%,
-        #fd5949 45%,
-        #d6249f 60%,
-        #285aeb 90%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 30px;
     padding-left: 5px;
     transition: transform 0.3s;
-    /* Animation effect */
   }
 
   .fa-square-instagram:hover {
     transform: scale(1.1);
-    /* Scale effect on hover */
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .footer-container {
       flex-direction: column;
-      /* Stack items vertically */
-      align-items: flex-start;
-      /* Align to the start */
     }
 
     .footer-info {
-      text-align: left;
-      /* Align text to the left on smaller screens */
       margin-top: 10px;
-      /* Space between sections */
     }
-  }
+  } */
 </style>
 
 <footer>
   <hr />
   <div class="footer-container">
-    <div class="footer-links">
+    <!-- About Us -->
+    <div class="footer-section">
+      <h3>About Us</h3>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Careers</a></li>
       </ul>
     </div>
+
+    <!-- Services -->
+    <div class="footer-section">
+      <h3>Services</h3>
+      <ul>
+        <li><a href="/explorebooks">explore books</a></li>
+        <li><a href="/addbooks/new">Add your book</a></li>
+        <li><a href="/explorebooks">Book Exchange</a></li>
+        <li><a href="#">E-books</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-section">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="/Privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section newsletter">
+      <h3>Newsletter</h3>
+      <p>Sign up for updates and offers:</p>
+      <!-- <input type="email" placeholder="Your email" />
+      <button>Subscribe</button> -->
+      <ul>
+        <li><a href="/signup">SignUp</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-container">
+    <div class="f-info-socials">
+      <a href="https://www.facebook.com/mohit.kumarthakur.3958?mibextid=ZbWKwL">
+        <i class="fa-brands fa-square-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/mohit._.thakur._.07/">
+        <i class="fa-brands fa-square-instagram"></i>
+      </a>
+    </div>
     <div class="footer-info">
-      <div class="f-info">
-        <div class="f-info-socials">
-          <a href="https://www.facebook.com/mohit.kumarthakur.3958?mibextid=ZbWKwL">
-            <i class="fa-brands fa-square-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/mohit._.thakur._.07/">
-            <i class="fa-brands fa-square-instagram"></i>
-          </a>
-        </div>
-        <div class="f-info-brand">&copy; Book Hub V2.0.1</div>
-      </div>
+      <div>&copy; Book Hub V2.0.2</div>
       <p>Contact: mohitkumart19@gmail.com</p>
-      <p>Phone: 88945 82454</p>
-      <p><i>made with love &hearts;</i></p>
+      <p><i>Made with love &hearts;</i></p>
     </div>
   </div>
 </footer>

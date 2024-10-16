@@ -138,7 +138,6 @@ app.post(
   }),
   (req, res) => {
     req.flash("success", "Welcome back!");
-    console.log(saveRedirectUrl);
     let redirectUrl = res.locals.redirectUrl || "/";
     res.redirect(redirectUrl);
   }
@@ -217,7 +216,6 @@ app.get(
     // res.send("your book page");
     // res.render("explorebooks/yourBooks.ejs");
     const userId = req.user._id;
-    console.log(userId);
     const yourBooks = await Book.find({ owner: userId });
     // const books = await User.findById(userId).populate("owner");
     // console.log(books.owner);
@@ -269,7 +267,6 @@ app.put(
 app.delete("/explorebooks/:id", isLoggedIn, async (req, res) => {
   let { id } = req.params;
   let deletedBook = await Book.findByIdAndDelete(id);
-  console.log(deletedBook);
   req.flash("error", "you deleted your book");
   res.redirect("/explorebooks");
 });
