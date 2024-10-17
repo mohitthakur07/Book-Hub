@@ -123,3 +123,17 @@
     </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener("click", function (event) {
+    const navbar = document.querySelector(".navbar-collapse");
+    const isClickInside = navbar.contains(event.target);
+    const isTogglerClick = event.target.classList.contains("navbar-toggler");
+
+    // If the click is outside the navbar and the navbar is shown, hide the navbar collapse
+    if (!isClickInside && !isTogglerClick && navbar.classList.contains("show")) {
+      const toggler = document.querySelector(".navbar-toggler");
+      toggler.click(); // Trigger the toggler to close the navbar
+    }
+  });
+</script>
