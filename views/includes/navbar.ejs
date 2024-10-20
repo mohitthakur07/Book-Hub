@@ -1,139 +1,211 @@
 <style>
+  body {
+    margin: 0;
+    font-family: "Bitter", serif;
+  }
+
   nav {
-    box-shadow: 2px 4px 8px black;
-    margin: 0.5rem;
-    border-radius: 10px;
-    padding: 13px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: #fff;
+    box-shadow: 2px 4px 8px #17858181;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-brand img {
+    height: 80px;
+    width: 80px;
+    /* border: 2px solid rgba(0, 0, 0, 0.434); */
+    /* box-shadow: 2px 2px 7px rgb(0, 0, 0); */
   }
 
   .fa-book {
-    color: #fa8b2d;
-  }
-
-  @media only screen and (min-width: 1217px) {
-    nav {
-      border-radius: 0.8rem;
-      margin: 2rem 6rem;
-    }
-
-    .collapse {
-      margin-left: 19rem;
-    }
+    margin-right: 0.5rem;
   }
 
   .navbar-toggler {
+    font-size: 1.5rem;
+    background: none;
     border: none;
+    cursor: pointer;
+    display: none;
   }
 
-  .nav-link {
-    font-family: "Bitter", serif;
-    font-size: 1.3rem;
-    font-weight: 500;
-    font-style: normal;
-    color: #333;
-    margin-left: 0.2rem;
-    border-radius: 16px;
-    transition: background-color 0.4s ease, color 0.5s ease;
-  }
-
-  .nav-link:hover {
-    color: #fff;
-    background-color: #fa8b2d;
-    border-radius: 16px;
-  }
-
-  .nav-link:active {
-    color: #fff;
-    background-color: #f87537;
-    border-radius: 20px;
+  .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
   }
 
   .navbar-section {
-    flex-grow: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* Custom styling for mobile view */
+  .nav-link {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0 1rem;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.4s ease, color 0.5s ease;
+  }
+
+  .nav-link {
+    position: relative;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #178582;
+  }
+
+  /* Create the underline effect using ::after pseudo-element */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    background-color: #178582;
+    transition: width 0.3s ease;
+  }
+
+  /* On hover, the underline expands to full width */
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Active state background and text color */
+  .nav-link:active {
+    color: #fff;
+    background-color: #178582;
+    /* Background color when active */
+  }
+
+
+  @media (min-width: 990px) {
+
+    .close-btn {
+      display: none;
+    }
+
+
+  }
+
+  /* Mobile view */
   @media (max-width: 990px) {
-    /* .collapse {
+    .navbar-toggler {
+      display: block;
+    }
+
+    .navbar-menu {
       position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: #fff;
-      box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.1);
-      width: 200px;
-      padding: 1rem;
-      border-radius: 8px 0 8px 8px;
-    } */
+      top: 0;
+      right: -100%;
+      /* Initially hidden off-screen */
+      width: 70%;
+      height: 100vh;
+      background-color: #0a1828;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem;
+      transition: right 0.4s ease;
+      /* Smooth transition */
+    }
+
+    .navbar-section {
+      flex-direction: column;
+      width: 100%;
+    }
 
     .nav-link {
-      background-color: #fa8d2d;
-      margin: 0.1rem 0;
+      margin: 1rem 0;
       color: #ffffff;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
     }
+
+    .show {
+      right: 0;
+      /* Slide in from right */
+    }
+
+    .close-btn {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #ffffff;
+      align-self: flex-end;
+      margin-bottom: 2rem;
+    }
+
+
   }
 </style>
+</head>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-section">
-      <a class="navbar-brand" href="/"><i class="fa-solid fa-book"></i>book hub</a>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<body>
+
+  <nav>
+    <a class="navbar-brand" href="/"><img src="/css/book-hub-logo-beta.png" alt=""></a>
+    <button class="navbar-toggler" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-menu">
+      <!-- Close button for mobile menu -->
+      <span class="close-btn">&times;</span>
       <div class="navbar-section">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item findbooks">
-            <a class="nav-link" href="/explorebooks">Explore books</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/addbooks/new">Add your book</a>
-          </li>
-        </ul>
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/explorebooks">Explore Books</a>
+        <a class="nav-link" href="/addbooks/new">Add Your Book</a>
       </div>
       <div class="navbar-section">
-        <!-- Empty section for center alignment -->
-      </div>
-      <div class="navbar-section">
-        <ul class="navbar-nav">
-          <% if(!curntUser) {%>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Log in <i class="fa-regular fa-user"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signup">Sign up <i class="fa-regular fa-user"></i></a>
-            </li>
-            <% } %>
-              <% if (curntUser) { %>
-                <li class="nav-item">
-                  <a class="nav-link" href="/logout">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/yourbooks">your profile <i class="fa-solid fa-user"></i></a>
-                </li>
-                <% } %>
-        </ul>
+        <% if(!curntUser) { %>
+          <a class="nav-link" href="/login">Log in <i class="fa-regular fa-user"></i></a>
+          <a class="nav-link" href="/signup">Sign up <i class="fa-regular fa-user"></i></a>
+          <% } %>
+            <% if (curntUser) { %>
+              <a class="nav-link" href="/yourbooks">Your Profile <i class="fa-solid fa-user"></i></a>
+              <a class="nav-link" href="/logout">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+              <% } %>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<script>
-  document.addEventListener("click", function (event) {
-    const navbar = document.querySelector(".navbar-collapse");
-    const isClickInside = navbar.contains(event.target);
-    const isTogglerClick = event.target.classList.contains("navbar-toggler");
+  <script>
+    const toggler = document.querySelector(".navbar-toggler");
+    const menu = document.querySelector(".navbar-menu");
+    const closeBtn = document.querySelector(".close-btn");
 
-    // If the click is outside the navbar and the navbar is shown, hide the navbar collapse
-    if (!isClickInside && !isTogglerClick && navbar.classList.contains("show")) {
-      const toggler = document.querySelector(".navbar-toggler");
-      toggler.click(); // Trigger the toggler to close the navbar
-    }
-  });
-</script>
+    // Show menu on toggler click
+    toggler.addEventListener("click", function () {
+      menu.classList.toggle("show");
+    });
+
+    // Close menu on close button click
+    closeBtn.addEventListener("click", function () {
+      menu.classList.remove("show");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+      const isClickInside = menu.contains(event.target) || toggler.contains(event.target);
+      if (!isClickInside) {
+        menu.classList.remove("show");
+      }
+    });
+  </script>
