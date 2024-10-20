@@ -20,8 +20,6 @@
   .navbar-brand img {
     height: 80px;
     width: 80px;
-    /* border: 2px solid rgba(0, 0, 0, 0.434); */
-    /* box-shadow: 2px 2px 7px rgb(0, 0, 0); */
   }
 
   .fa-book {
@@ -89,12 +87,12 @@
     width: 100%;
   }
 
-  /* Active state background and text color */
-  .nav-link:active {
+  .active {
+    background-color: #0A1828;
     color: #fff;
-    background-color: #178582;
-    /* Background color when active */
+    font-weight: bold;
   }
+
 
 
   @media (min-width: 990px) {
@@ -107,6 +105,8 @@
   }
 
   /* Mobile view */
+  /* Mobile view */
+  /* Mobile view */
   @media (max-width: 990px) {
     .navbar-toggler {
       display: block;
@@ -116,33 +116,33 @@
       position: absolute;
       top: 0;
       right: -100%;
-      /* Initially hidden off-screen */
       width: 70%;
       height: 100vh;
-      background-color: #0a1828;
+      background-color: #0A1828;
       flex-direction: column;
       align-items: flex-start;
       padding: 2rem;
       transition: right 0.4s ease;
-      /* Smooth transition */
+      justify-content: flex-start;
     }
 
     .navbar-section {
       flex-direction: column;
       width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-link {
-      margin: 1rem 0;
-      color: #ffffff;
+      margin: 0;
+      color: rgb(255, 255, 255);
       width: 100%;
       text-align: center;
-      padding: 1rem;
+      padding: 1rem 0;
     }
 
     .show {
       right: 0;
-      /* Slide in from right */
     }
 
     .close-btn {
@@ -152,8 +152,6 @@
       align-self: flex-end;
       margin-bottom: 2rem;
     }
-
-
   }
 </style>
 </head>
@@ -169,9 +167,11 @@
       <!-- Close button for mobile menu -->
       <span class="close-btn">&times;</span>
       <div class="navbar-section">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/explorebooks">Explore Books</a>
-        <a class="nav-link" href="/addbooks/new">Add Your Book</a>
+        <a class="nav-link <%= currentRoute === '/' ? 'active' : '' %>" href="/">Home</a>
+        <a class="nav-link <%= currentRoute === '/explorebooks' ? 'active' : '' %>" href="/explorebooks">Explore
+          Books</a>
+        <a class="nav-link <%= currentRoute === '/addbooks/new' ? 'active' : '' %>" href="/addbooks/new">Add Your
+          Book</a>
       </div>
       <div class="navbar-section">
         <% if(!curntUser) { %>
@@ -179,8 +179,9 @@
           <a class="nav-link" href="/signup">Sign up <i class="fa-regular fa-user"></i></a>
           <% } %>
             <% if (curntUser) { %>
-              <a class="nav-link" href="/yourbooks">Your Profile <i class="fa-solid fa-user"></i></a>
-              <a class="nav-link" href="/logout">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+              <a class="nav-link <%= currentRoute === '/yourbooks' ? " active" : '' %>" href="/yourbooks">Your Profile
+                <i class="fa-solid fa-user"></i></a><a class="nav-link" href="/logout">Log out <i
+                  class="fa-solid fa-right-from-bracket"></i></a>
               <% } %>
       </div>
     </div>

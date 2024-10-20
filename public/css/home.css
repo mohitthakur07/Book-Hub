@@ -17,7 +17,8 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  /* min-height: 80vh; */
+  margin-top: 5rem;
   background: linear-gradient(to top, #0A1828, #05403e); /* Gradient: Dark Blue to Turquoise */
 }
 
@@ -40,47 +41,11 @@ a {
   color: #ffffff; /* Gold */
 }
 
-.find-btn button {
-  font-size: 1.2rem;
-  padding: 0.8rem 2rem;
-  margin-top: 2rem;
-  background-color: #178582; /* Turquoise */
-  color: #ffffff; /* White text */
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  position: relative; /* For ripple effect */
-  overflow: hidden; /* To contain ripple effect */
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
 
 /* Hover effect for the button */
 .find-btn button:hover {
   background-color: #0A1828; /* Dark Classic Blue on hover */
   transform: scale(1.05); /* Slight zoom on hover */
-}
-
-/* Active state to mimic pressing the button */
-.find-btn button:active {
-  transform: scale(0.95); /* Shrinks the button slightly on click */
-}
-
-/* Ripple effect */
-.find-btn button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background-color: rgba(255, 255, 255, 0.3); /* White translucent ripple */
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.6s ease;
-}
-
-.find-btn button:active::before {
-  transform: translate(-50%, -50%) scale(1);
 }
 
 .find-btn button {
@@ -91,22 +56,7 @@ a {
   color: #ffffff; /* White text */
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  position: relative; /* For ripple effect */
-  overflow: hidden; /* To contain ripple effect */
-  transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
-/* Hover effect for the button */
-.find-btn button:hover {
-  background-color: #0A1828; /* Dark Classic Blue on hover */
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.find-btn button:active {
-  transform: scale(0.95); /* Shrinks the button slightly on click */
-}
-
 
 
 .find-btn button a{
@@ -212,9 +162,35 @@ a {
   margin-bottom: 2rem; /* Space between logo and heading */
 }
 
+@media (max-width: 1165px) and (min-width: 600px) {
+  .heading h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  .heading p {
+    font-size: 1.2rem;
+  }
+
+  .find-btn button {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    margin:0 0 0 40% ;
+  }
+
+  .home-ani{
+    width: 300px; 
+    height: 300px; 
+    border: none; 
+    border-radius: 15px; 
+    margin-top: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+}
+
 
 /* Responsive Styling for Mobile */
-@media (max-width: 1165px) {
+@media (max-width: 600px) {
   .home-logo {
     flex-direction: column;
     gap: 1rem;
@@ -244,13 +220,19 @@ a {
     margin:0 0 0 4rem ;
   }
 
-  .youtube , .home-ani{
-    width: 300px; /* Adjust width */
-    height: 300px; /* Adjust height */
-    border: none; /* Remove default border */
-    border-radius: 15px; /* Add rounded corners */
+  .home-ani{
+    width: 300px; 
+    height: 300px; 
+    border: none; 
+    border-radius: 15px; 
     margin-top: 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+
+  .youtube {
+    width: 100%; 
+    height: 100%; 
+    margin-top: 2rem;
   }
 }

@@ -82,6 +82,10 @@ app.use((req, res, next) => {
   res.locals.curntUser = req.user;
   next();
 });
+app.use((req, res, next) => {
+  res.locals.currentRoute = req.path;
+  next();
+});
 
 const validateBook = (req, res, next) => {
   let { error } = bookSchema.validate(req.body);
